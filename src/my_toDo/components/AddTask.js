@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../style/AddTask.css';
 
 const AddTask = ({
   handleNewTask,
@@ -40,16 +41,21 @@ const AddTask = ({
         type="text"
         placeholder="Enter your task"
       />
-      <button onClick={handleAddTask}>
-        Add Task
-      </button>
       <button
-        className={
+        className={'buttonAdd'}
+        onClick={handleAddTask}
+      >
+        {' '}
+        <i class="far fa-plus-square"></i>
+      </button>
+
+      <button
+        className={`${
           isImportant ? 'important' : null
-        }
+        } buttonImportant`}
         onClick={handleImportant}
       >
-        !!!
+        <i class="fas fa-exclamation-circle"></i>
       </button>
     </div>
   );

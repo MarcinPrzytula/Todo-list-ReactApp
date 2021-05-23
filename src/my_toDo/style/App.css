@@ -7,3 +7,8 @@
 .important {
   color: red;
 }
+
+button {
+  background-color: unset;
+  border: none;
+}

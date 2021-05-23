@@ -1,13 +1,14 @@
 .task {
   display: flex;
   justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .task button {
-  padding: 0 5px 0 5px;
   margin-left: 5px;
-}
-
-.checked {
-  text-decoration: line-through;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: unset;
+  border: none;
 }

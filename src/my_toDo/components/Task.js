@@ -6,45 +6,36 @@ const Task = ({
   deleteTask,
   getId,
   isImportant,
-  isChecked,
   setIsChecked,
 }) => {
   const importantStyle = isImportant
     ? 'important'
     : null;
 
-  const checkedStyle = isChecked
-    ? 'checked'
-    : null;
-
   return (
     <>
       <div className="task">
-        <p
-          className={`${importantStyle} ${checkedStyle}`}
-        >
-          Nazwa zadania: {name} (ID:{id})
-        </p>{' '}
+        <p className={importantStyle}>{name}</p>{' '}
         <button
           onClick={() => {
             deleteTask(id);
           }}
         >
-          X
+          <i class="far fa-trash-alt"></i>
         </button>
         <button
           onClick={() => {
             setIsChecked(id);
           }}
         >
-          +
+          <i class="far fa-check-square"></i>
         </button>
         <button
           onClick={() => {
             getId(id);
           }}
         >
-          EDIT
+          <i class="far fa-edit"></i>
         </button>
       </div>
     </>

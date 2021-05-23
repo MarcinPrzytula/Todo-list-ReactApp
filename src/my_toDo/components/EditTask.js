@@ -56,13 +56,15 @@ const EditTask = ({
               value={inputValue}
               type="text"
             />
-            <button>SAVE EDIT</button>
+            <button className="saveButton">
+              <i class="far fa-save"></i>
+            </button>
           </form>
           <button
             className="quit"
             onClick={handleClick}
           >
-            X
+            <i class="far fa-times-circle"></i>
           </button>
         </div>
       </div>

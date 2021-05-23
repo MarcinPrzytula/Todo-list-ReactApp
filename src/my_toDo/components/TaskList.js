@@ -1,5 +1,6 @@
 import React from 'react';
 import Task from './Task';
+import DoneTask from './DoneTask';
 
 const TaskList = ({
   tasks,
@@ -31,15 +32,12 @@ const TaskList = ({
 
   const doneTasksList = doneTasks.map(
     ({ name, id, isImportant, isChecked }) => (
-      <Task
+      <DoneTask
         name={name}
         id={id}
         key={id}
-        deleteTask={deleteTask}
-        getId={getId}
         isImportant={isImportant}
         isChecked={isChecked}
-        setIsChecked={setIsChecked}
       />
     )
   );
