@@ -1,0 +1,13 @@
+.task {
+  display: flex;
+  justify-content: center;
+}
+
+.task button {
+  padding: 0 5px 0 5px;
+  margin-left: 5px;
+}
+
+.checked {
+  text-decoration: line-through;
+}
