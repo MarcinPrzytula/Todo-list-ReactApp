@@ -76,6 +76,7 @@ const TaskList = ({
         isChecked={isChecked}
         date={date}
         finishDate={finishDate}
+        deleteTask={deleteTask}
       />
     )
   );
@@ -96,7 +97,13 @@ const TaskList = ({
             : 'Nie zrobiłeś jeszcze żadnego zadania'}
         </p>
       ) : null}
-      {doneTasksList}
+      {doneTasks.length > 5 && (
+        <span style={{ fontSize: 10 }}>
+          wyświetlonych jest jedynie 5 ostatnich
+          zadań
+        </span>
+      )}
+      {doneTasksList.slice(0, 5)}
     </>
   );
 };

@@ -7,6 +7,8 @@ const DoneTask = ({
   isChecked,
   date,
   finishDate,
+  deleteTask,
+  id,
 }) => {
   const importantStyle = isImportant
     ? 'important'
@@ -24,6 +26,13 @@ const DoneTask = ({
           {name} (zrobić do:{date}) - wykonano:
           {finishDate}
         </p>{' '}
+        <button
+          onClick={() => {
+            deleteTask(id);
+          }}
+        >
+          <i className="far fa-trash-alt"></i>
+        </button>
       </div>
     </>
   );
