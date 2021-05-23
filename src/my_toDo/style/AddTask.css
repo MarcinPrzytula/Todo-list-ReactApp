@@ -25,3 +25,11 @@
 .buttonAdd {
   color: green;
 }
+
+.dateContainer {
+  display: flex;
+  flex-grow: unset;
+}
+.dateContainer input {
+  width: 50%;
+}

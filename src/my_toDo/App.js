@@ -44,28 +44,42 @@ const App = () => {
     );
   };
   const handleTaskChecked = id => {
+    const finishDate = new Date(
+      new Date().getTime()
+    ).toLocaleString();
+
     const newTasks = tasks.map(task => {
       if (task.id === id) {
         task.isChecked = !task.isChecked;
+        task.finishDate = finishDate;
       }
       return task;
     });
     setTasks(newTasks);
   };
 
-  const handleNewTask = (name, isImportant) => {
+  const handleNewTask = (
+    name,
+    isImportant,
+    date
+  ) => {
     const task = {
       name,
       id: counter,
       isImportant,
       isChecked: false,
+      date,
     };
 
     setTasks([...tasks, task]);
     setCounter(counter + 1);
   };
 
-  const validateInputValue = (val, items) => {
+  const validateInputValue = (
+    val,
+    items,
+    valDate
+  ) => {
     let value = val
       .replace('>', '')
       .replace('<', '')
@@ -76,13 +90,16 @@ const App = () => {
         'Zadanie musi składać się z minimum 3 znaków'
       );
       value = '';
+    } else if (valDate.length === 0) {
+      alert('Wybierz datę końca zadania!');
+      value = '';
     } else {
-      const x = items.find(
+      const task = items.find(
         item =>
           item.name.toLowerCase().trim() ===
           value.toLowerCase()
       );
-      if (x) {
+      if (task) {
         alert('To zadanie już jest');
         value = '';
       }

@@ -3,9 +3,10 @@ import '../style/DoneTask.css';
 
 const DoneTask = ({
   name,
-  id,
   isImportant,
   isChecked,
+  date,
+  finishDate,
 }) => {
   const importantStyle = isImportant
     ? 'important'
@@ -14,14 +15,14 @@ const DoneTask = ({
   const checkedStyle = isChecked
     ? 'checked'
     : null;
-
   return (
     <>
       <div className="task">
         <p
           className={`${importantStyle} ${checkedStyle}`}
         >
-          {name}
+          {name} (zrobić do:{date}) - wykonano:
+          {finishDate}
         </p>{' '}
       </div>
     </>

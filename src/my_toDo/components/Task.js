@@ -7,35 +7,37 @@ const Task = ({
   getId,
   isImportant,
   setIsChecked,
+  date,
 }) => {
   const importantStyle = isImportant
     ? 'important'
     : null;
-
   return (
     <>
       <div className="task">
-        <p className={importantStyle}>{name}</p>{' '}
+        <p className={importantStyle}>
+          {name} (zrobić do:{date})
+        </p>{' '}
         <button
           onClick={() => {
             deleteTask(id);
           }}
         >
-          <i class="far fa-trash-alt"></i>
+          <i className="far fa-trash-alt"></i>
         </button>
         <button
           onClick={() => {
             setIsChecked(id);
           }}
         >
-          <i class="far fa-check-square"></i>
+          <i className="far fa-check-square"></i>
         </button>
         <button
           onClick={() => {
             getId(id);
           }}
         >
-          <i class="far fa-edit"></i>
+          <i className="far fa-edit"></i>
         </button>
       </div>
     </>

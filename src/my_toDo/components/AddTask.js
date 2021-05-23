@@ -10,18 +10,28 @@ const AddTask = ({
 }) => {
   const [inputValue, setInputValue] =
     useState('');
+  const [dateInputValue, setDateInputValue] =
+    useState('');
 
-  const handleInput = e => {
-    setInputValue(e.currentTarget.value);
-  };
+  const minDate = new Date()
+    .toISOString()
+    .slice(0, 10);
+  const maxDate = `${
+    parseInt(minDate.slice(0, 4)) + 1
+  }-12-31`;
 
   const handleAddTask = () => {
     const value = validateInput(
       inputValue,
-      tasks
+      tasks,
+      dateInputValue
     );
     if (value) {
-      handleNewTask(value, isImportant);
+      handleNewTask(
+        value,
+        isImportant,
+        dateInputValue
+      );
 
       if (isImportant) setImportant(!isImportant);
 
@@ -37,16 +47,34 @@ const AddTask = ({
     <div className="add_container">
       <input
         value={inputValue}
-        onChange={handleInput}
+        onChange={e => {
+          setInputValue(e.currentTarget.value);
+        }}
         type="text"
         placeholder="Enter your task"
       />
+
+      <div className="dateContainer">
+        <p>Do kiedy zrobić:</p>{' '}
+        <input
+          type="date"
+          min={minDate}
+          max={maxDate}
+          value={dateInputValue}
+          onChange={e => {
+            setDateInputValue(
+              e.currentTarget.value
+            );
+          }}
+        />
+      </div>
+
       <button
         className={'buttonAdd'}
         onClick={handleAddTask}
       >
         {' '}
-        <i class="far fa-plus-square"></i>
+        <i className="far fa-plus-square"></i>
       </button>
 
       <button
@@ -55,7 +83,7 @@ const AddTask = ({
         } buttonImportant`}
         onClick={handleImportant}
       >
-        <i class="fas fa-exclamation-circle"></i>
+        <i className="fas fa-exclamation-circle"></i>
       </button>
     </div>
   );
