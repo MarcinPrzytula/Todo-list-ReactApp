@@ -26,12 +26,10 @@ const AddTask = ({
       tasks,
       dateInputValue
     );
+    if (dateInputValue.length === 0)
+      return alert('Wybierz datę końca zadania');
     if (value) {
-      handleNewTask(
-        value,
-        isImportant,
-        dateInputValue
-      );
+      handleNewTask(value, isImportant);
 
       if (isImportant) setImportant(!isImportant);
 

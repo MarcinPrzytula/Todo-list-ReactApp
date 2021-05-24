@@ -23,12 +23,6 @@ const EditTask = ({
       tasks
     );
 
-    const taskId = e.currentTarget;
-    console.log(taskId);
-    // const idTask = tasks.find(
-    //   ({ id: task }) => task === id
-    // );
-
     if (value) {
       editTask(inputValue);
 

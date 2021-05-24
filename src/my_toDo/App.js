@@ -90,9 +90,6 @@ const App = () => {
         'Zadanie musi składać się z minimum 3 znaków'
       );
       value = '';
-    } else if (valDate.length === 0) {
-      alert('Wybierz datę końca zadania!');
-      value = '';
     } else {
       const task = items.find(
         item =>
