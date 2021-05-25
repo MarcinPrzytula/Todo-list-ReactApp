@@ -75,11 +75,7 @@ const App = () => {
     setCounter(counter + 1);
   };
 
-  const validateInputValue = (
-    val,
-    items,
-    valDate
-  ) => {
+  const validateInputValue = (val, items) => {
     let value = val
       .replace('>', '')
       .replace('<', '')

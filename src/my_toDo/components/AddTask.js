@@ -23,13 +23,16 @@ const AddTask = ({
   const handleAddTask = () => {
     const value = validateInput(
       inputValue,
-      tasks,
-      dateInputValue
+      tasks
     );
     if (dateInputValue.length === 0)
       return alert('Wybierz datę końca zadania');
     if (value) {
-      handleNewTask(value, isImportant);
+      handleNewTask(
+        value,
+        isImportant,
+        dateInputValue
+      );
 
       if (isImportant) setImportant(!isImportant);
 
