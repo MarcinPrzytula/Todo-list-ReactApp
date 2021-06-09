@@ -2,6 +2,8 @@
 
 burger_menu
 kurs_toDo
+my_toDo
+redux
 # dependencies
 /node_modules
 /.pnp
