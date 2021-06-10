@@ -67,7 +67,24 @@ const AddTask = ({ validateInput }) => {
         type="text"
         placeholder="Enter your task"
       />
-
+      <button
+        className={`${
+          isImportantTask
+            ? 'activeButtonImportant'
+            : null
+        } buttonImportant`}
+        onClick={handleImportant}
+      >
+        {isImportantTask ? (
+          <div>
+            {' '}
+            <p>Zadanie priorytetowe</p>{' '}
+            <i className="fas fa-exclamation-circle"></i>
+          </div>
+        ) : (
+          <p>Zadanie normalne</p>
+        )}
+      </button>
       <div className="dateContainer">
         <p>Do kiedy zrobić:</p>{' '}
         <input
@@ -87,17 +104,10 @@ const AddTask = ({ validateInput }) => {
         className={'buttonAdd'}
         onClick={handleAddTask}
       >
-        {' '}
-        <i className="far fa-plus-square"></i>
-      </button>
-
-      <button
-        className={`${
-          isImportantTask ? 'important' : null
-        } buttonImportant`}
-        onClick={handleImportant}
-      >
-        <i className="fas fa-exclamation-circle"></i>
+        <div>
+          <p>Dodaj zadanie</p>
+          <i className="far fa-plus-square"></i>
+        </div>
       </button>
     </div>
   );

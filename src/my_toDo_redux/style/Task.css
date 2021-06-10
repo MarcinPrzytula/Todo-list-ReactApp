@@ -12,3 +12,7 @@
   background-color: unset;
   border: none;
 }
+
+.important {
+  color: red;
+}

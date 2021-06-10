@@ -3,6 +3,7 @@ import Task from './Task';
 import DoneTask from './DoneTask';
 
 import { useSelector } from 'react-redux';
+import '../style/TaskList.css';
 
 const TaskList = ({ getId, setIsChecked }) => {
   const tasks = useSelector(store => store.tasks);
@@ -79,21 +80,28 @@ const TaskList = ({ getId, setIsChecked }) => {
     )
   );
   return (
-    <>
-      <p>
-        Number of tasks:{' '}
-        <span className="tasksCounter">
-          {tasks.length}
-        </span>
-      </p>
-      <p>Aktywne zadania:</p>
-      {activeTasksList}
-      {tasks.length ? (
+    <div className="taskList_container">
+      <div className="numberOfTasks">
         <p>
-          {doneTasksList.length
-            ? 'Taski zrobione'
-            : 'Nie zrobiłeś jeszcze żadnego zadania'}
+          Liczba zadań:{' '}
+          <span className="tasksCounter">
+            {tasks.length}
+          </span>
         </p>
+      </div>
+      <p className="activeTasks">
+        Aktywne zadania:
+      </p>
+      <div>{activeTasksList}</div>
+      {tasks.length ? (
+        <div>
+          {' '}
+          <p>
+            {doneTasksList.length
+              ? 'Zadania zakończone:'
+              : 'Nie zrobiłeś jeszcze żadnego zadania'}
+          </p>
+        </div>
       ) : null}
       {doneTasks.length > 5 && (
         <span style={{ fontSize: 10 }}>
@@ -102,7 +110,7 @@ const TaskList = ({ getId, setIsChecked }) => {
         </span>
       )}
       {doneTasksList.slice(0, 5)}
-    </>
+    </div>
   );
 };
 

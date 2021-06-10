@@ -1,35 +1,64 @@
 .add_container {
   position: relative;
   display: flex;
-  margin: 0 auto;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 50%;
+  margin: 10px auto;
+  border: 2px solid grey;
+  box-sizing: border-box;
+  padding: 30px;
 }
 
 .add_container input {
-  width: 90%;
+  width: 88%;
+  /* height: 20px; */
 }
 
 .add_container button {
-  width: 10%;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .add_container .buttonImportant {
-  width: 10%;
-  position: absolute;
-  top: 0;
-  right: 0;
+  width: 11%;
+  height: 60px;
+  /* position: absolute; */
+  /* top: 0;
+  right: 0; */
+  border: 1px solid green;
+  color: green;
+}
+.add_container .activeButtonImportant {
+  border: 1px solid red;
+  color: red;
 }
 
-.buttonAdd {
+.add_container .buttonAdd {
   color: green;
+  border: 1px solid green;
+  padding: 3px;
+  /* width: 30%; */
+  margin: 2px auto;
+  cursor: pointer;
 }
 
 .dateContainer {
   display: flex;
   flex-grow: unset;
+  width: 100%;
+}
+
+input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
 }
 .dateContainer input {
   width: 50%;
+  /* cursor: pointer; */
+}
+
+@media (max-width: 600px) {
+  .add_container {
+    width: 80%;
+  }
 }
