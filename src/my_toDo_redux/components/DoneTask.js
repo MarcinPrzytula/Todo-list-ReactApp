@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/DoneTask.css';
+import styles from '../style/DoneTask.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from '../actions/appActions';
 
@@ -14,15 +14,15 @@ const DoneTask = ({
   const dispatch = useDispatch();
 
   const importantStyle = isImportant
-    ? 'important'
+    ? styles.important
     : null;
 
   const checkedStyle = isChecked
-    ? 'checked'
+    ? styles.checked
     : null;
   return (
     <>
-      <div className="task">
+      <div className={styles.task}>
         <p
           className={`${importantStyle} ${checkedStyle}`}
         >

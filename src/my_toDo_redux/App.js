@@ -6,7 +6,7 @@ import AddTask from './components/AddTask';
 import TaskList from './components/TaskList';
 import EditTask from './components/EditTask';
 
-import './style/App.css';
+import styles from './style/App.module.css';
 
 const App = () => {
   const validateInputValue = (val, items) => {

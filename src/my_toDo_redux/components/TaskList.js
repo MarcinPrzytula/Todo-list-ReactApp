@@ -1,9 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import styles from '../style/TaskList.module.css';
+
 import Task from './Task';
 import DoneTask from './DoneTask';
-
-import { useSelector } from 'react-redux';
-import '../style/TaskList.css';
 
 const TaskList = ({ getId, setIsChecked }) => {
   const tasks = useSelector(store => store.tasks);
@@ -80,32 +81,33 @@ const TaskList = ({ getId, setIsChecked }) => {
     )
   );
   return (
-    <div className="taskList_container">
-      <div className="numberOfTasks">
+    <div className={styles.taskList_container}>
+      <div className={styles.numberOfTasks}>
         <p>
           Liczba zadań:{' '}
-          <span className="tasksCounter">
+          <span className={styles.tasksCounter}>
             {tasks.length}
           </span>
         </p>
       </div>
-      <p className="activeTasks">
-        Aktywne zadania:
+      <p className={styles.activeTasks}>
+        {activeTasksList.length
+          ? 'Zadania do wykonania:'
+          : 'Nie masz zadań do zrobienia'}
       </p>
       <div>{activeTasksList}</div>
       {tasks.length ? (
-        <div>
-          {' '}
+        <div className={styles.doneTasks}>
           <p>
             {doneTasksList.length
-              ? 'Zadania zakończone:'
-              : 'Nie zrobiłeś jeszcze żadnego zadania'}
+              ? 'Wykonane zadania:'
+              : 'Nie wykonałeś jeszcze żadnego zadania'}
           </p>
         </div>
       ) : null}
       {doneTasks.length > 5 && (
         <span style={{ fontSize: 10 }}>
-          wyświetlonych jest jedynie 5 ostatnich
+          Wyświetlonych jest jedynie 5 ostatnich
           zadań
         </span>
       )}

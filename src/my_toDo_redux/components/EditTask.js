@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../style/EditTask.css';
+import styles from '../style/EditTask.module.css';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -49,26 +49,31 @@ const EditTask = ({ validateInput }) => {
   return (
     <>
       <div
-        className={`blurWrapper ${
-          test.isVisible ? 'show' : ''
+        className={`${styles.blurWrapper} ${
+          test.isVisible ? styles.show : null
         }`}
       >
-        <div className="formWrapper">
+        <div className={styles.formWrapper}>
           <form
             onSubmit={handleEditTask}
             name="send"
           >
-            <input
-              onChange={handleChange}
-              value={inputValue}
-              type="text"
-            />
-            <button className="saveButton">
-              <i className="far fa-save"></i>
-            </button>
+            <div className={styles.menuWrapper}>
+              <input
+                onChange={handleChange}
+                value={inputValue}
+                type="text"
+                placeholder="Wprowadź nową nazwę zadania"
+              />
+              <button
+                className={styles.saveButton}
+              >
+                <i className="far fa-save"></i>
+              </button>
+            </div>
           </form>
           <button
-            className="quit"
+            className={styles.quit}
             onClick={handleClick}
           >
             <i className="far fa-times-circle"></i>

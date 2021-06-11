@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../style/AddTask.css';
+import styles from '../style/AddTask.module.css';
 
 import { useDispatch } from 'react-redux';
 import { addTask } from '../actions/appActions';
@@ -58,21 +58,21 @@ const AddTask = ({ validateInput }) => {
   };
 
   return (
-    <div className="add_container">
+    <div className={styles.add_container}>
       <input
         value={inputValue}
         onChange={e => {
           setInputValue(e.currentTarget.value);
         }}
         type="text"
-        placeholder="Enter your task"
+        placeholder="Wprowadź nazwę zadania"
       />
       <button
         className={`${
           isImportantTask
-            ? 'activeButtonImportant'
+            ? styles.activeButtonImportant
             : null
-        } buttonImportant`}
+        } ${styles.buttonImportant}`}
         onClick={handleImportant}
       >
         {isImportantTask ? (
@@ -85,7 +85,7 @@ const AddTask = ({ validateInput }) => {
           <p>Zadanie normalne</p>
         )}
       </button>
-      <div className="dateContainer">
+      <div className={styles.dateContainer}>
         <p>Do kiedy zrobić:</p>{' '}
         <input
           type="date"
@@ -101,7 +101,7 @@ const AddTask = ({ validateInput }) => {
       </div>
 
       <button
-        className={'buttonAdd'}
+        className={styles.buttonAdd}
         onClick={handleAddTask}
       >
         <div>

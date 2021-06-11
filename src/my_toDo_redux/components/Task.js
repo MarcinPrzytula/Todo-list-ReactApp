@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/Task.css';
+import styles from '../style/Task.module.css';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -36,7 +36,7 @@ const Task = ({
     : null;
   return (
     <>
-      <div className="task">
+      <div className={styles.task}>
         <p className={importantStyle}>
           {name} (zrobić do:{date})
         </p>{' '}

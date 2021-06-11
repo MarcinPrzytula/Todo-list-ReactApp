@@ -1,11 +1,12 @@
 .taskList_container {
   margin: 0 auto;
   border: 1px solid grey;
-  width: 50%;
+  width: 80%;
 }
 
 .taskList_container p {
   padding: 5px;
+  overflow: hidden;
 }
 
 .activeTasks {
@@ -15,4 +16,9 @@
 
 .numberOfTasks {
   font-style: italic;
+}
+
+.doneTasks {
+  padding: 5px;
+  font-weight: bold;
 }
