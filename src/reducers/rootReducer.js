@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
 import { appReducer } from './appReducer';
-import { testReducer } from './testReducer';
+import { editPopupReducer } from './editPopupReducer';
 
 export const rootReducer = combineReducers({
   tasks: appReducer,
-  test: testReducer,
+  editPopup: editPopupReducer,
 });

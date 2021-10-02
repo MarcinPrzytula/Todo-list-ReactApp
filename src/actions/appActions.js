@@ -1,4 +1,4 @@
-export const ADD = 'ADD_RATE';
+export const ADD = 'ADD';
 export const DELETE = 'DELETE';
 export const EDIT = 'EDIT';
 export const CHECKED = 'CHECKED';

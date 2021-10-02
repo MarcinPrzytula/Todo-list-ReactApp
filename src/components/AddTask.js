@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import styles from '../style/AddTask.module.css';
 
-import { useDispatch } from 'react-redux';
 import { addTask } from '../actions/appActions';
-import { useSelector } from 'react-redux';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
+
+import styles from '../style/AddTask.module.css';
 
 const AddTask = ({ validateInput }) => {
   const [inputValue, setInputValue] =
     useState('');
+
   const [dateInputValue, setDateInputValue] =
     useState('');
 
@@ -33,7 +37,9 @@ const AddTask = ({ validateInput }) => {
     );
 
     if (dateInputValue.length === 0)
-      return alert('Wybierz datę końca zadania');
+      return alert(
+        'Select the end date for the task'
+      );
     if (value) {
       const task = {
         name: value,
@@ -58,35 +64,34 @@ const AddTask = ({ validateInput }) => {
   };
 
   return (
-    <div className={styles.add_container}>
+    <div className={styles.container}>
       <input
+        className={styles.input_add}
         value={inputValue}
         onChange={e => {
           setInputValue(e.currentTarget.value);
         }}
         type="text"
-        placeholder="Wprowadź nazwę zadania"
+        placeholder="Enter the name of the task."
       />
       <button
-        className={`${
+        className={`${styles.button_important} ${
           isImportantTask
-            ? styles.activeButtonImportant
+            ? styles.button_important_active
             : null
-        } ${styles.buttonImportant}`}
+        }`}
         onClick={handleImportant}
       >
         {isImportantTask ? (
           <div>
-            {' '}
-            <p>Zadanie priorytetowe</p>{' '}
-            <i className="fas fa-exclamation-circle"></i>
+            <p>Priority task</p>{' '}
           </div>
         ) : (
-          <p>Zadanie normalne</p>
+          <p>Normal task</p>
         )}
       </button>
-      <div className={styles.dateContainer}>
-        <p>Do kiedy zrobić:</p>{' '}
+      <div className={styles.date_container}>
+        <p>Perform the task until:</p>{' '}
         <input
           type="date"
           min={minDate}
@@ -101,12 +106,12 @@ const AddTask = ({ validateInput }) => {
       </div>
 
       <button
-        className={styles.buttonAdd}
+        className={styles.button_add}
         onClick={handleAddTask}
       >
         <div>
-          <p>Dodaj zadanie</p>
-          <i className="far fa-plus-square"></i>
+          <p>Add task</p>
+          <span className="far fa-plus-square"></span>
         </div>
       </button>
     </div>

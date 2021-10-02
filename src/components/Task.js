@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../style/Task.module.css';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -7,7 +6,8 @@ import {
   setTaskIsChecked,
 } from '../actions/appActions';
 
-import { currentId } from '../actions/testActions';
+import { currentId } from '../actions/editPopupActions';
+import styles from '../style/Task.module.css';
 
 const Task = ({
   name,
@@ -32,7 +32,7 @@ const Task = ({
   };
 
   const importantStyle = isImportant
-    ? 'important'
+    ? styles.important
     : null;
   return (
     <>

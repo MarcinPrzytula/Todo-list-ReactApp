@@ -17,7 +17,7 @@ const App = () => {
 
     if (value.length < 3) {
       alert(
-        'Zadanie musi składać się z minimum 3 znaków'
+        'The task must be at least 3 characters long.'
       );
       value = '';
     } else {
@@ -27,7 +27,7 @@ const App = () => {
           value.toLowerCase()
       );
       if (task) {
-        alert('To zadanie już jest');
+        alert('This task is already here.');
         value = '';
       }
     }
@@ -37,14 +37,16 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <div>
-        <AddTask
-          validateInput={validateInputValue}
-        />
-        <TaskList />
-        <EditTask
-          validateInput={validateInputValue}
-        />
+      <div className={styles.app}>
+        <div className={styles.app_container}>
+          <AddTask
+            validateInput={validateInputValue}
+          />
+          <TaskList />
+          <EditTask
+            validateInput={validateInputValue}
+          />
+        </div>
       </div>
     </Provider>
   );

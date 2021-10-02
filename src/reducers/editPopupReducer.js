@@ -1,6 +1,6 @@
-import { ID } from '../actions/testActions.js';
+import { ID } from '../actions/editPopupActions.js';
 
-export const testReducer = (
+export const editPopupReducer = (
   state = {},
   action
 ) => {
@@ -12,7 +12,7 @@ export const testReducer = (
       };
     default:
       console.warn(
-        `Nie mamy akcji typu ${action.type}`
+        `We have no action of the type${action.type}`
       );
 
       return state;

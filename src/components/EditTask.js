@@ -5,11 +5,13 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { editTask } from '../actions/appActions';
-import { currentId } from '../actions/testActions';
+import { currentId } from '../actions/editPopupActions';
 
 const EditTask = ({ validateInput }) => {
   const tasks = useSelector(store => store.tasks);
-  const test = useSelector(store => store.test);
+  const editPopup = useSelector(
+    store => store.editPopup
+  );
   const dispatch = useDispatch();
 
   const [inputValue, setInputValue] =
@@ -26,13 +28,15 @@ const EditTask = ({ validateInput }) => {
       inputValue,
       tasks
     );
-    if (test.id === '')
+    if (editPopup.id === '')
       return alert(
-        'najpierw wybierz zadanie do edycji!'
+        'First select a task to edit.'
       );
 
     if (value) {
-      dispatch(editTask({ id: test.id, value }));
+      dispatch(
+        editTask({ id: editPopup.id, value })
+      );
 
       dispatch(
         currentId({ id: null, isVisible: false })
@@ -50,7 +54,7 @@ const EditTask = ({ validateInput }) => {
     <>
       <div
         className={`${styles.blurWrapper} ${
-          test.isVisible ? styles.show : null
+          editPopup.isVisible ? styles.show : null
         }`}
       >
         <div className={styles.formWrapper}>
@@ -63,7 +67,7 @@ const EditTask = ({ validateInput }) => {
                 onChange={handleChange}
                 value={inputValue}
                 type="text"
-                placeholder="Wprowadź nową nazwę zadania"
+                placeholder="Enter a new name for the task."
               />
               <button
                 className={styles.saveButton}

@@ -1,71 +1,52 @@
-.add_container {
-  position: relative;
+.container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 50%;
-  margin: 10px auto;
-  border: 2px solid grey;
-  padding: 30px;
+  justify-content: space-between;
+  min-width: 300px;
+  width: 100%;
+  padding: 30px 50px;
+  background-color: rgb(209, 193, 193);
 }
 
-.add_container input {
-  width: 85%;
-  /* height: 20px; */
-}
-
-.add_container button {
+.input_add {
+  width: 70%;
+  height: 40px;
   margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.button_important {
+  height: 40px;
+  width: 20%;
+  border: 1px solid green;
+}
+
+.date_container {
+  width: 100%;
+}
+
+.date_container input {
+  height: 40px;
+  margin-top: 5px;
+}
+.date_container
+  input::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-.add_container .buttonImportant {
-  width: 14%;
-  height: 60px;
-  /* position: absolute; */
-  /* top: 0;
-  right: 0; */
-  border: 1px solid green;
-  color: green;
-}
-.add_container .activeButtonImportant {
+.button_important_active {
   border: 1px solid red;
   color: red;
 }
 
-.add_container .buttonAdd {
+.button_add {
+  width: 30%;
+  height: 40px;
   color: green;
   border: 1px solid green;
   padding: 3px;
-  /* width: 30%; */
-  margin: 2px auto;
+  margin: 0 auto;
+  margin-top: 10px;
   cursor: pointer;
-}
-
-.dateContainer {
-  display: flex;
-  flex-grow: unset;
-  width: 100%;
-}
-
-input::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-}
-.dateContainer input {
-  width: 50%;
-  /* cursor: pointer; */
-}
-
-@media (max-width: 600px) {
-  .add_container {
-    width: 80%;
-  }
-  .add_container input {
-    width: 60%;
-    /* height: 20px; */
-  }
-
-  .add_container .buttonImportant {
-    width: 40%;
-  }
 }
