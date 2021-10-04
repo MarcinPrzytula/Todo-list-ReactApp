@@ -23,19 +23,22 @@ const DoneTask = ({
   return (
     <>
       <div className={styles.task}>
-        <p
+        <div
           className={`${importantStyle} ${checkedStyle}`}
         >
-          {name} (zrobić do:{date}) - wykonano:
-          {finishDate}
-        </p>{' '}
-        <button
-          onClick={() => {
-            dispatch(deleteTask({ id }));
-          }}
-        >
-          <i className="far fa-trash-alt"></i>
-        </button>
+          <p>{name}</p>{' '}
+          <button
+            onClick={() => {
+              dispatch(deleteTask({ id }));
+            }}
+          >
+            <span className="far fa-trash-alt"></span>
+          </button>
+          <p>
+            (time to do: {date}) - done:{' '}
+            {finishDate}
+          </p>
+        </div>{' '}
       </div>
     </>
   );

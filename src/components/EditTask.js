@@ -72,7 +72,7 @@ const EditTask = ({ validateInput }) => {
               <button
                 className={styles.saveButton}
               >
-                <i className="far fa-save"></i>
+                <span className="far fa-save"></span>
               </button>
             </div>
           </form>

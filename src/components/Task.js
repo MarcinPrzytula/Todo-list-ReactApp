@@ -37,21 +37,22 @@ const Task = ({
   return (
     <>
       <div className={styles.task}>
-        <p className={importantStyle}>
-          {name} (zrobić do:{date})
-        </p>{' '}
+        <div className={importantStyle}>
+          <p>{name}</p>
+          <p>(time to do:{date})</p>
+        </div>{' '}
         <button
           onClick={() => {
             dispatch(deleteTask({ id }));
           }}
         >
-          <i className="far fa-trash-alt"></i>
+          <span className="far fa-trash-alt"></span>
         </button>
         <button onClick={handleTaskChecked}>
-          <i className="far fa-check-square"></i>
+          <span className="far fa-check-square"></span>
         </button>
         <button onClick={handleEditClick}>
-          <i className="far fa-edit"></i>
+          <span className="far fa-edit"></span>
         </button>
       </div>
     </>

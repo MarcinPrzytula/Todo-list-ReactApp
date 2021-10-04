@@ -9,13 +9,8 @@
 }
 
 .app_container {
-  max-width: 1000px;
+  max-width: 600px;
   min-height: 100vh;
   margin: 0 auto;
-  background-color: white;
-}
-
-button {
-  background-color: unset;
-  border: none;
+  background-color: thistle;
 }

@@ -109,11 +109,17 @@ const AddTask = ({ validateInput }) => {
         className={styles.button_add}
         onClick={handleAddTask}
       >
-        <div>
-          <p>Add task</p>
-          <span className="far fa-plus-square"></span>
-        </div>
+        <p>Add task</p>
+        <span className="far fa-plus-square"></span>
       </button>
+      <div className={styles.numberOfTasks}>
+        <p>
+          Number of tasks:{' '}
+          <span className={styles.tasksCounter}>
+            {tasks.length}
+          </span>
+        </p>
+      </div>
     </div>
   );
 };

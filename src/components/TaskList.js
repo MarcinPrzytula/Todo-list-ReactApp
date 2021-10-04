@@ -83,22 +83,14 @@ const TaskList = () => {
   );
   return (
     <div className={styles.taskList_container}>
-      <div className={styles.numberOfTasks}>
-        <p>
-          Number of tasks:{' '}
-          <span className={styles.tasksCounter}>
-            {tasks.length}
-          </span>
-        </p>
-      </div>
-      <p className={styles.activeTasks}>
+      <p className={styles.activeTasksHead}>
         {activeTasksList.length
           ? 'Tasks to be performed:'
           : 'You have no work to do'}
       </p>
-      <div>{activeTasksList}</div>
+      <div className>{activeTasksList}</div>
       {tasks.length ? (
-        <div className={styles.doneTasks}>
+        <div className={styles.doneTasksHead}>
           <p>
             {doneTasksList.length
               ? 'Completed tasks:'
