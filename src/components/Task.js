@@ -44,6 +44,14 @@ const Task = ({
         <button
           onClick={() => {
             dispatch(deleteTask({ id }));
+            // const x = JSON.parse(
+            //   window.localStorage.tasks
+            // );
+            // const y = x.find(x => x.id === id);
+            // console.log(y);
+            // window.localStorage.removeItem(
+            //   'tasks'
+            // );
           }}
         >
           <span className="far fa-trash-alt"></span>

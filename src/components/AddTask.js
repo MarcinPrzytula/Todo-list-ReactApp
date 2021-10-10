@@ -30,11 +30,15 @@ const AddTask = ({ validateInput }) => {
 
   const [counter, setCounter] = useState(0);
 
-  const handleAddTask = () => {
+  const handleAddTask = e => {
+    e.preventDefault();
     const value = validateInput(
       inputValue,
       tasks
     );
+    const id = Math.random()
+      .toString(36)
+      .substr(2, 9);
 
     if (dateInputValue.length === 0)
       return alert(
@@ -43,13 +47,14 @@ const AddTask = ({ validateInput }) => {
     if (value) {
       const task = {
         name: value,
-        id: counter,
+        id: id,
         isImportant: isImportantTask,
         isChecked: false,
         date: dateInputValue,
       };
 
       dispatch(addTask(task));
+
       setCounter(counter + 1);
     }
 

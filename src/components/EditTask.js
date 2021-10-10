@@ -28,10 +28,10 @@ const EditTask = ({ validateInput }) => {
       inputValue,
       tasks
     );
-    if (editPopup.id === '')
-      return alert(
-        'First select a task to edit.'
-      );
+    // if (editPopup.id === '')
+    //   return alert(
+    //     'First select a task to edit.'
+    //   );
 
     if (value) {
       dispatch(
@@ -43,6 +43,14 @@ const EditTask = ({ validateInput }) => {
       );
       setInputValue('');
     }
+    // const localStorageTask = tasks.find(
+    //   task => task.id === editPopup.id
+    // );
+    // console.log(localStorageTask);
+    // window.localStorage.setItem(
+    //   editPopup.id,
+    //   JSON.stringify(localStorageTask)
+    // );
   };
 
   const handleClick = () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import Task from './Task';
@@ -7,8 +7,31 @@ import DoneTask from './DoneTask';
 import styles from '../style/TaskList.module.css';
 
 // { getId, setIsChecked }
+
 const TaskList = () => {
   const tasks = useSelector(store => store.tasks);
+
+  const [firstTime, setFirstTime] =
+    useState(true);
+
+  const localStorage = JSON.parse(
+    window.localStorage.getItem('tasks')
+  );
+
+  if (
+    window.localStorage.length > 0 &&
+    firstTime
+  ) {
+    localStorage.forEach(item =>
+      tasks.push(item)
+    );
+    setFirstTime(false);
+  }
+
+  window.localStorage.setItem(
+    'tasks',
+    JSON.stringify(tasks)
+  );
 
   const doneTasks = tasks.filter(
     task => task.isChecked
@@ -29,6 +52,7 @@ const TaskList = () => {
   const activeTasks = tasks.filter(
     task => !task.isChecked
   );
+
   if (activeTasks.length >= 2) {
     activeTasks.sort((a, b) => {
       a = a.name.toLowerCase();
@@ -88,7 +112,7 @@ const TaskList = () => {
           ? 'Tasks to be performed:'
           : 'You have no work to do'}
       </p>
-      <div className>{activeTasksList}</div>
+      <div>{activeTasksList}</div>
       {tasks.length ? (
         <div className={styles.doneTasksHead}>
           <p>
