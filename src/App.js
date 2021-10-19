@@ -7,8 +7,8 @@ import TaskList from './components/TaskList';
 import EditTask from './components/EditTask';
 
 import styles from './style/App.module.css';
-
 const App = () => {
+  console.log('test');
   const validateInputValue = (val, items) => {
     let value = val
       .replace('>', '')
