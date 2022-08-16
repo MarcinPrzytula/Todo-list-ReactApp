@@ -1,0 +1,57 @@
+.blurWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.formWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 25%;
+  background-color: #eee;
+  border: 1px solid grey;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.quit {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.formWrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.formWrapper input {
+  margin: 5px 5px;
+  height: 50px;
+  width: 90%;
+}
+.formWrapper button {
+  width: 10%;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.3s;
+}

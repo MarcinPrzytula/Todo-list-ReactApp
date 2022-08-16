@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+
+  padding: 30px 50px;
+  background-color: rgb(209, 193, 193);
+  background-image: url('../images/todo-lists-g03bd0dd55_640.jpg');
+  background-position: center;
+}
+
+.input_add {
+  width: 70%;
+  height: 40px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.button_important {
+  height: 40px;
+  width: 20%;
+  border-radius: 10px;
+}
+
+.date_container {
+  width: 100%;
+}
+
+.date_container input {
+  height: 40px;
+  margin-top: 5px;
+}
+.date_container
+  input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.button_important_active {
+  color: red;
+}
+
+.button_add {
+  width: 30%;
+  height: 40px;
+  background-color: white;
+  color: black;
+  padding: 3px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.container button {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+.numberOfTasks {
+  margin-top: 20px;
+  width: 100%;
+  font-style: italic;
+  border-bottom: 1px solid grey;
+}
