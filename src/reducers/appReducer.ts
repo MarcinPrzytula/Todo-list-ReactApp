@@ -37,7 +37,6 @@ const editTask = (state: DefaultStateI[], action: EditTaskI) => {
 };
 
 const deleteTask = (state: DefaultStateI[], action: AppReducerActionsTypes) => {
-  console.log(action);
   const newState = state.filter(
     currentStateElement => currentStateElement.id !== action.payload
   );

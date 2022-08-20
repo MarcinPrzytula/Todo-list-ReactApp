@@ -2,8 +2,16 @@ import React from 'react';
 import styles from '../style/DoneTask.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from '../actions/appActions';
+import { DefaultStateI } from '../interfaces';
 
-const DoneTask = ({ name, isImportant, isChecked, date, finishDate, id }) => {
+const DoneTask = ({
+  name,
+  isImportant,
+  isChecked,
+  date,
+  finishDate,
+  id,
+}: DefaultStateI) => {
   const dispatch = useDispatch();
 
   const importantStyle = isImportant ? styles.important : null;

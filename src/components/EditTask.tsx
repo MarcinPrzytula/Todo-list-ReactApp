@@ -7,21 +7,25 @@ import { useDispatch } from 'react-redux';
 import { editTask } from '../actions/appActions';
 import { currentId } from '../actions/editPopupActions';
 import { validateInputValue } from '../helpers/validateInputValue.helper';
+import { DefaultStateI, DefaultStatePopupI } from '../interfaces';
+import { RootStore } from '../store/store';
 
 const EditTask = () => {
-  const tasks = useSelector(store => store.tasks);
+  const tasks = useSelector((state: RootStore): DefaultStateI[] => state.tasks);
 
-  const editPopup = useSelector(store => store.editPopup);
+  const editPopup = useSelector(
+    (state: RootStore): DefaultStatePopupI => state.editPopup
+  );
 
   const dispatch = useDispatch();
 
   const [inputValue, setInputValue] = useState('');
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
   };
 
-  const handleEditTask = e => {
+  const handleEditTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const value = validateInputValue(inputValue, tasks);
@@ -29,13 +33,13 @@ const EditTask = () => {
     if (value) {
       dispatch(editTask({ id: editPopup.id, name: value }));
 
-      dispatch(currentId({ id: null, active: false }));
+      dispatch(currentId({ id: '', active: false }));
       setInputValue('');
     }
   };
 
   const handleClick = () => {
-    dispatch(currentId({ id: null, active: false }));
+    dispatch(currentId({ id: '', active: false }));
   };
   return (
     <>

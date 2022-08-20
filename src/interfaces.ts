@@ -6,3 +6,8 @@ export interface DefaultStateI {
   date: string;
   finishDate: string;
 }
+
+export interface DefaultStatePopupI {
+  id: string;
+  active: boolean;
+}

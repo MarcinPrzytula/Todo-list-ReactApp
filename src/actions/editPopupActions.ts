@@ -1,14 +1,10 @@
+import { DefaultStatePopupI } from '../interfaces';
 export const ID = 'ID';
 export const SWITCH_VISIBLE = 'SWITCH_VISIBLE';
 
-interface DefaultStateI {
-  id: number;
-  active: boolean;
-}
-
 export interface ID_I {
   type: typeof ID;
-  payload: DefaultStateI;
+  payload: DefaultStatePopupI;
 }
 
 export interface SWITCH_VISIBLE_I {

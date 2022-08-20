@@ -10,7 +10,7 @@ import { DefaultStateI } from '../interfaces';
 import styles from '../style/TaskList.module.css';
 
 const TaskList: React.FC = () => {
-  const tasks = useSelector((state: RootStore) => state.tasks);
+  const tasks = useSelector((state: RootStore): DefaultStateI[] => state.tasks);
   const dispatch = useDispatch();
 
   useEffect(() => {

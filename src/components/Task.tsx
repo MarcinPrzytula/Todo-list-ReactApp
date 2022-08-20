@@ -9,7 +9,7 @@ import { DefaultStateI } from '../interfaces';
 
 const Task = ({ id, name, isImportant, date }: DefaultStateI) => {
   const dispatch = useDispatch();
-  console.log(id);
+
   const handleTaskChecked = () => {
     const finishDate = new Date(new Date().getTime()).toLocaleString();
 
