@@ -3,6 +3,6 @@ export interface DefaultStateI {
   name: string;
   isImportant: boolean;
   isChecked: boolean;
-  date: number;
-  finishDate?: number;
+  date: string;
+  finishDate: string;
 }

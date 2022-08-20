@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from '../store/store';
 
@@ -9,7 +9,7 @@ import { addTasksFromLocalStorage } from '../actions/appActions';
 import { DefaultStateI } from '../interfaces';
 import styles from '../style/TaskList.module.css';
 
-const TaskList = () => {
+const TaskList: React.FC = () => {
   const tasks = useSelector((state: RootStore) => state.tasks);
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const TaskList = () => {
   );
 
   if (doneTasks.length >= 2) {
-    doneTasks.sort((a: any, b: any) => {
+    doneTasks.sort((a: DefaultStateI, b: DefaultStateI) => {
       if (a.finishDate < b.finishDate) {
         return 1;
       }
@@ -41,13 +41,13 @@ const TaskList = () => {
   }
 
   const activeTasks = (tasks as DefaultStateI[]).filter(
-    (task: any) => !task.isChecked
+    (task: DefaultStateI) => !task.isChecked
   );
 
   if (activeTasks.length >= 2) {
-    activeTasks.sort((a: any, b: any) => {
-      a = a.name.toLowerCase();
-      b = b.name.toLowerCase();
+    activeTasks.sort((v1: DefaultStateI, v2: any) => {
+      const a = v1.name.toLowerCase();
+      const b = v2.name.toLowerCase();
 
       if (a < b) return -1;
       if (a > b) return 1;
@@ -56,26 +56,25 @@ const TaskList = () => {
   }
 
   const activeTasksList = activeTasks.map(
-    ({ name, id, isImportant, isChecked, date }: any) => (
+    ({ name, id, isImportant, isChecked, date, finishDate }: DefaultStateI) => (
       <Task
-        name={name}
-        id={id}
         key={id}
-        // getId={getId}
+        id={id}
+        name={name}
         isImportant={isImportant}
         isChecked={isChecked}
-        // setIsChecked={setIsChecked}
         date={date}
+        finishDate={finishDate}
       />
     )
   );
 
   const doneTasksList = doneTasks.map(
-    ({ name, id, isImportant, isChecked, date, finishDate }: any) => (
+    ({ name, id, isImportant, isChecked, date, finishDate }: DefaultStateI) => (
       <DoneTask
-        name={name}
-        id={id}
         key={id}
+        id={id}
+        name={name}
         isImportant={isImportant}
         isChecked={isChecked}
         date={date}

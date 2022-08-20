@@ -2,38 +2,38 @@ import React, { useState } from 'react';
 
 import { addTask } from '../actions/appActions';
 import { useDispatch, useSelector } from 'react-redux';
+import { validateInputValue } from '../helpers/validateInputValue.helper';
 
 import styles from '../style/AddTask.module.css';
-
-const AddTask = ({ validateInput }) => {
-  const [inputValue, setInputValue] = useState('');
-
-  const [dateInputValue, setDateInputValue] = useState('');
+import { RootStore } from '../store/store';
+import { DefaultStateI } from '../interfaces';
+const AddTask = () => {
+  const dispatch = useDispatch();
+  const tasks = useSelector((state: RootStore): DefaultStateI[] => state.tasks);
+  const [values, setValues] = useState({ name: '', date: '' });
 
   const [isImportantTask, setIsImportantTask] = useState(false);
-
-  const dispatch = useDispatch();
-  const tasks = useSelector(store => store.tasks);
 
   const minDate = new Date().toISOString().slice(0, 10);
   const maxDate = `${parseInt(minDate.slice(0, 4)) + 1}-12-31`;
 
   const [counter, setCounter] = useState(0);
 
-  const handleAddTask = e => {
+  const handleAddTask = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const value = validateInput(inputValue, tasks);
+    const value = validateInputValue(values.name, tasks);
     const id = Math.random().toString(36).substr(2, 9);
 
-    if (dateInputValue.length === 0)
+    if (values.name.length === 0)
       return alert('Select the end date for the task');
     if (value) {
       const task = {
-        name: value,
         id: id,
+        name: value,
         isImportant: isImportantTask,
         isChecked: false,
-        date: dateInputValue,
+        date: values.date,
+        finishDate: '',
       };
 
       dispatch(addTask(task));
@@ -44,20 +44,25 @@ const AddTask = ({ validateInput }) => {
 
     if (isImportantTask) setIsImportantTask(!isImportantTask);
 
-    setInputValue('');
+    setValues({ name: '', date: '' });
   };
 
   const handleImportant = () => {
     setIsImportantTask(!isImportantTask);
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   return (
     <div className={styles.container}>
       <input
+        name="name"
         className={styles.input_add}
-        value={inputValue}
+        value={values.name}
         onChange={e => {
-          setInputValue(e.currentTarget.value);
+          handleChange(e);
         }}
         type="text"
         placeholder="Enter the name of the task."
@@ -79,12 +84,13 @@ const AddTask = ({ validateInput }) => {
       <div className={styles.date_container}>
         <p>Perform the task until:</p>{' '}
         <input
+          name="date"
           type="date"
           min={minDate}
           max={maxDate}
-          value={dateInputValue}
+          value={values.date}
           onChange={e => {
-            setDateInputValue(e.currentTarget.value);
+            handleChange(e);
           }}
         />
       </div>

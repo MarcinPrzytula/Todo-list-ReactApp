@@ -6,8 +6,9 @@ import { useDispatch } from 'react-redux';
 
 import { editTask } from '../actions/appActions';
 import { currentId } from '../actions/editPopupActions';
+import { validateInputValue } from '../helpers/validateInputValue.helper';
 
-const EditTask = ({ validateInput }) => {
+const EditTask = () => {
   const tasks = useSelector(store => store.tasks);
 
   const editPopup = useSelector(store => store.editPopup);
@@ -23,7 +24,7 @@ const EditTask = ({ validateInput }) => {
   const handleEditTask = e => {
     e.preventDefault();
 
-    const value = validateInput(inputValue, tasks);
+    const value = validateInputValue(inputValue, tasks);
 
     if (value) {
       dispatch(editTask({ id: editPopup.id, name: value }));

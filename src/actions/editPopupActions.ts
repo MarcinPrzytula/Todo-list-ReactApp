@@ -18,7 +18,7 @@ export interface SWITCH_VISIBLE_I {
 export type EditPopupActionsTypes = ID_I | SWITCH_VISIBLE_I;
 
 export interface EditPopupActionsI {
-  id?: number;
+  id?: string;
   active: boolean;
 }
 

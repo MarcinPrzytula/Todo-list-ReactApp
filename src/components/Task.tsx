@@ -5,10 +5,11 @@ import { deleteTask, setTaskIsChecked } from '../actions/appActions';
 
 import { currentId } from '../actions/editPopupActions';
 import styles from '../style/Task.module.css';
+import { DefaultStateI } from '../interfaces';
 
-const Task = ({ name, id, isImportant, date, isChecked }) => {
+const Task = ({ id, name, isImportant, date }: DefaultStateI) => {
   const dispatch = useDispatch();
-
+  console.log(id);
   const handleTaskChecked = () => {
     const finishDate = new Date(new Date().getTime()).toLocaleString();
 
@@ -19,7 +20,7 @@ const Task = ({ name, id, isImportant, date, isChecked }) => {
     dispatch(currentId({ id, active: true }));
   };
 
-  const importantStyle = isImportant ? styles.important : null;
+  const importantStyle = isImportant ? styles.important : '';
   return (
     <>
       <div className={styles.task}>

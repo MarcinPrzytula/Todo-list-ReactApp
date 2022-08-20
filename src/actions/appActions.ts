@@ -14,7 +14,7 @@ export interface AddTaskI {
 
 export interface EditTaskI {
   type: typeof EDIT;
-  payload: DefaultStateI;
+  payload: { id: string; name: string };
 }
 
 export interface DeleteTaskI {
@@ -24,7 +24,7 @@ export interface DeleteTaskI {
 
 export interface CheckedTaskI {
   type: typeof CHECKED;
-  payload: { id: string; finishDate: number };
+  payload: { id: string; finishDate: string };
 }
 export interface AddTasksFromLocalStorageI {
   type: typeof LOCAL_STORAGE;
@@ -41,23 +41,24 @@ export const addTasksFromLocalStorage = (tasks: DefaultStateI[]) => ({
   type: LOCAL_STORAGE,
   payload: tasks,
 });
-export const addTask = ({ name, id, isImportant, date }: DefaultStateI) => ({
+export const addTask = ({ id, name, isImportant, date }: DefaultStateI) => ({
   type: ADD,
   payload: {
-    name,
     id,
+    name,
     isImportant,
     isChecked: false,
     date,
+    finishDate: null,
   },
 });
 
-export const deleteTask = (id: DefaultStateI) => ({
+export const deleteTask = (id: string) => ({
   type: DELETE,
   payload: id,
 });
 
-export const editTask = ({ id, name }: DefaultStateI) => ({
+export const editTask = ({ id, name }: EditTaskI['payload']) => ({
   type: EDIT,
   payload: {
     id,
@@ -65,7 +66,10 @@ export const editTask = ({ id, name }: DefaultStateI) => ({
   },
 });
 
-export const setTaskIsChecked = ({ id, finishDate }: DefaultStateI) => ({
+export const setTaskIsChecked = ({
+  id,
+  finishDate,
+}: CheckedTaskI['payload']) => ({
   type: CHECKED,
   payload: { id, finishDate },
 });
