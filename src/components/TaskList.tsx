@@ -7,7 +7,7 @@ import DoneTask from './DoneTask';
 import { addTasksFromLocalStorage } from '../actions/appActions';
 
 import { DefaultStateI } from '../interfaces';
-import styles from '../style/TaskList.module.css';
+import styles from '../styles/TaskList.module.css';
 
 const TaskList: React.FC = () => {
   const tasks = useSelector((state: RootStore): DefaultStateI[] => state.tasks);

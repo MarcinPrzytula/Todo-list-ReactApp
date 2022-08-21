@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { deleteTask, setTaskIsChecked } from '../actions/appActions';
 
 import { currentId } from '../actions/editPopupActions';
-import styles from '../style/Task.module.css';
+import styles from '../styles/Task.module.css';
 import { DefaultStateI } from '../interfaces';
 
 const Task = ({ id, name, isImportant, date }: DefaultStateI) => {

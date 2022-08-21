@@ -6,7 +6,7 @@ import AddTask from './components/AddTask';
 import TaskList from './components/TaskList';
 import EditTask from './components/EditTask';
 
-import styles from './style/App.module.css';
+import styles from './styles/App.module.css';
 const App = () => {
   return (
     <Provider store={store}>

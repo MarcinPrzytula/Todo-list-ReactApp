@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../style/DoneTask.module.css';
+import styles from '../styles/DoneTask.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from '../actions/appActions';
 import { DefaultStateI } from '../interfaces';

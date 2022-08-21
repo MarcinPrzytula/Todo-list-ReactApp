@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../style/EditTask.module.css';
+import styles from '../styles/EditTask.module.css';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';

@@ -4,7 +4,7 @@ import { addTask } from '../actions/appActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { validateInputValue } from '../helpers/validateInputValue.helper';
 
-import styles from '../style/AddTask.module.css';
+import styles from '../styles/AddTask.module.css';
 import { RootStore } from '../store/store';
 import { DefaultStateI } from '../interfaces';
 const AddTask = () => {
